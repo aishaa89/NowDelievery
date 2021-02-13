@@ -1,0 +1,25 @@
+﻿@model DelivaryCost
+@{
+    ViewData["Title"] = "SetDelivaryCostByArea";
+}
+
+<div class="container">
+    <form asp-action="SetDelivaryCostByArea" asp-controller="Admin" method="post">
+        <div class="form-group">
+            <label asp-for="@Model.CustomerAreaID">Customer Area</label>
+            <select class="custom-select form-control" asp-for="@Model.CustomerAreaID" asp-items="@ViewData["CustomerArea"] as IEnumerable<SelectListItem>"></select>
+        </div>
+        <div class="form-group">
+            <label asp-for="@Model.ShoppingPlaceAreaID">Shooping Place Area</label>
+            <select class="custom-select form-control" asp-for="@Model.ShoppingPlaceAreaID" asp-items="@ViewData["ShoopingArea"] as IEnumerable<SelectListItem>"></select>
+        </div>
+        <div class="form-group">
+            <label asp-for="@Model.Cost">Delivary Cost</label>
+            <input type="number" min="5" asp-for="@Model.Cost" class="form-control" />
+            <span asp-validation-for="@Model.Cost"></span>
+        </div>
+        <div class="form-group">
+            <button class="btn btn-success btn-block" type="submit">Save</button>
+        </div>
+    </form>
+</div>

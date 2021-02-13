@@ -1,0 +1,35 @@
+﻿@model IEnumerable<CustomUser>
+
+@{
+    ViewData["Title"] = "GetAllDelivarymen";
+}
+
+<h1>All Delivarymen of company</h1>
+<hr />
+
+<table class="table table-hover">
+    <thead class="thead-dark">
+        <tr>
+            <th>Delivaryman Name</th>
+            <th>Delivaryman Email</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody class="table-light">
+        @{
+            foreach (var delivaryman in Model)
+            {
+                <tr>
+                    <td>@delivaryman.UserName</td>
+                    <td>@delivaryman.Email</td>
+                    <td>
+                        <a class="btn btn-block btn-info" asp-action="DelivarymanInformation" asp-controller="Admin" asp-route-delivarymanID="@delivaryman.Id">More Information</a>
+                    </td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>
+<hr />
+<hr />
+<a asp-area="Identity" asp-page="/Account/DelivarymanRazorPage" class="btn btn-block btn-success">Create New Delivaryman</a>

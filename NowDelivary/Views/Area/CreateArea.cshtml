@@ -1,0 +1,13 @@
+﻿@model Area
+@{
+    ViewData["Title"] = "CreateArea";
+}
+
+<form asp-action="CreateArea" asp-controller="Area" method="post">
+    <div class="form-group">
+        <label asp-for="@Model.AreaName">Area Name</label>
+        <input asp-for="@Model.AreaName" placeholder="Enter Area Name" />
+        <span asp-validation-for="@Model.AreaName" class="text-danger"></span>
+    </div>
+    <button class="btn btn-block btn-success" type="submit">Save</button>
+</form>

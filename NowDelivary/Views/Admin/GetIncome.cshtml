@@ -1,0 +1,29 @@
+﻿
+@{
+    ViewData["Title"] = "GetIncome";
+}
+
+    <div class="container">
+        <table class="table table-info">
+            <thead class="thead-dark">
+                <tr>
+                    <th>From month</th>
+                    <th>To month</th>
+                    <th>Year</th>
+                    <th>Total Income</th>
+                    <th>All Delivarymen Cost</th>
+                    <th>Company Profit for this duration</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>@ViewBag.monthFrom</td>
+                    <td>@ViewBag.monthTo</td>
+                    <td>@ViewBag.year</td>
+                    <td>@ViewBag.totalIncome EGP</td>
+                    <td>@ViewBag.delivarymenCost EGP</td>
+                    <td> @ViewBag.Profit EGP</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>

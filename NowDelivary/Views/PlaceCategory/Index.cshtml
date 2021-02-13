@@ -1,0 +1,37 @@
+﻿@model IEnumerable<NowDelivary.Models.PlaceCategory>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+    <div class="container">
+        <table class="table  table-hover">
+            <thead class="thead-dark">
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.PlaceCategoryName)
+                    </th>
+                    <th>Action</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.PlaceCategoryName)
+                        </td>
+                        <td>
+                            <a class="btn btn-block btn-info" asp-action="Edit" asp-controller="PlaceCategory" asp-route-id="@item.ID">Edit</a>
+                        </td>
+                        <td>
+                            <a class="btn btn-block btn-danger" asp-action="Delete" asp-controller="PlaceCategory" asp-route-id="@item.ID">Delete</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+        <a asp-action="Create" class="btn btn-block btn-info" id="btnShowModal">ADD New Place Type</a>
+    </div>
+

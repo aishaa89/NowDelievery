@@ -1,0 +1,68 @@
+﻿@model NowDelivary.ViewModel.ShoppingCardVM
+@{
+    ViewData["Title"] = "ShoppingCard";
+}
+
+<link href="~/projectAssets/assets/css/shoppingCardStyle.css" rel="stylesheet">
+
+<div class="container-fluid" style="margin-top: 10%; ">
+    <div class="row" style="background-color: white; border-radius: 20px ">
+        <div class="col-sm-6">
+            <img src="~/projectAssets/assets/img/shopCard.png" class="img-responsive" style="width: 70%; height: auto ;margin-top: 20%">
+        </div>
+        <div class="col-sm-5" style=" width: 50%; margin-top: 10%">
+            <div class="card card-price">
+                <div class="card-img">
+                    <div class="card-caption">
+                        <span style="color:cornflowerblue" class="h2">Your Shopping Items</span>
+                    </div>
+                </div>
+                <div class="card-body">
+                    @{
+                        var totalPrice = 0;
+                        if (ViewBag.orderID != null)
+                        {
+                            foreach (var orderInfo in Model.CurrentOrderInformation(ViewBag.orderID))
+                            {
+                                if (orderInfo.OrderImage == null)
+                                {
+                                    foreach (var item in Model.ShoppingItems(orderInfo.ID))
+                                    {
+                                        <table class="table table-hover">
+                                            <tbody>
+                                                <tr>
+                                                    <td>@item.MenuItem</td>
+                                                    <td>Price : @item.ItemPrice EGP</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    }
+                                }
+                                else
+                                {
+                                    <div class="row">
+                                        <div class="col-sm-12">
+                                            <hr />
+                                            <img height="100%" width="100%" src="~/images/@orderInfo.OrderImage" />
+                                        </div>
+                                    </div>
+                                }
+                                <p class="alert alert-info">Delivary Price is : @orderInfo.DelivaryCost</p>
+                                totalPrice += @orderInfo.DelivaryCost;
+                                <hr />
+                            }
+                            <div>
+                                <div style="font-size: 20px; border-width: 1px ;width: 50%">Total Delivary Cost =</div>
+                                <p class="alert alert-heading" style="font-size: 20px;width: 50%; margin-top: -5%; margin-left: 35%">@totalPrice EGP</p>
+                            </div>
+                            <br>
+                            <a id='link' asp-action="SubmitOrder" asp-controller="Customer" asp-route-orderID="@ViewBag.orderID" class="btn btn-primary btn-lg btn-block buy-now">Buy now</a>
+
+                        }
+                    }
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,133 @@
+﻿
+@{
+    ViewData["Title"] = "AdminView";
+}
+
+<style>
+    h1, p {
+        text-align: center;
+    }
+</style>
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-4 col-lg-4 col-md-4">
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+
+                        <img src="~/projectAssets/assets/img/admin/area.jpg" style="width:300px;height:300px;" alt="pharm">
+                    </div>
+                    <div class="flip-card-back">
+                        <h1>Areas</h1>
+                        <p>This Part is for CRUD oprarions on site Areas</p>
+                        <a asp-action="GetAll" asp-controller="Area" class="bubbly-button">Go</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4 col-lg-4 col-md-4">
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <img src="~/projectAssets/assets/img/admin/Deliveryman.png" style="width:300px;height:300px;" alt="pharm">
+                    </div>
+                    <div class="flip-card-back">
+                        <h1>DelieveryMan </h1>
+                        <p>This Part is for CRUD oprarions on site DelieveryMan</p>
+                        <a asp-action="GetAllDelivarymen" asp-controller="Admin" class="bubbly-button">Go</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4 col-lg-4 col-md-4">
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <img src="~/projectAssets/assets/img/admin/places.png" style="width:300px;height:300px;" alt="pharm">
+                    </div>
+                    <div class="flip-card-back">
+                        <h1>PlaceCategory </h1>
+                        <p>This Part is for CRUD oprarions on site PlaceCategory</p>
+                        <a asp-action="Index" asp-controller="PlaceCategory" class="bubbly-button">Go</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br />
+    </div>
+    <br />
+    <div class="row">
+        <div class="col-sm-4 col-lg-4 col-md-4">
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <img src="~/projectAssets/assets/img/admin/area1.jpg" style="width:300px;height:300px;" alt="pharm">
+                    </div>
+                    <div class="flip-card-back">
+                        <h1>Places</h1>
+                        <p>This Part is for CRUD oprarions on site places</p>
+                        <a asp-action="Index" asp-controller="Places" class="bubbly-button">Go</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4 col-lg-4 col-md-4">
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <img src="~/projectAssets/assets/img/admin/menu.jpg" style="width:300px;height:300px;" alt="pharm">
+                    </div>
+                    <div class="flip-card-back">
+                        <h1>Menues </h1>
+                        <p>This Part is for CRUD oprarions on site Menues</p>
+                        <a asp-action="GetAll" asp-controller="Menu" class="bubbly-button">Go</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4 col-lg-4 col-md-4">
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <img src="~/projectAssets/assets/img/admin/supplier.jpg" style="width:300px;height:300px;" alt="pharm">
+                    </div>
+                    <div class="flip-card-back">
+                        <h1>MenueCategory</h1>
+                        <p>This Part is for CRUD oprarions on site MenueCategory</p>
+                        <a asp-action="GetAll" asp-controller="MenuCategory" class="bubbly-button">Go</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4 col-lg-4 col-md-4">
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <img src="~/projectAssets/assets/img/income.jpg" style="width:300px;height:300px;" alt="pharm">
+                    </div>
+                    <div class="flip-card-back">
+                        <h1>Incom</h1>
+                        <p>This Part is for Incom</p>
+                        <a asp-action="IncomePage" asp-controller="Admin" class="bubbly-button">Go</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4 col-lg-4 col-md-4">
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <img src="~/projectAssets/assets/img/admin/deliverycost.png" style="width:300px;height:300px;" alt="pharm">
+                    </div>
+                    <div class="flip-card-back">
+                        <h1>Delivary Cost</h1>
+                        <p>This Part is for Set Delivary Cost Between Areas</p>
+                        <a asp-action="SetDelivaryCostByArea" asp-controller="Admin" class="bubbly-button">Go</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

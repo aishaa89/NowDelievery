@@ -1,0 +1,26 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+}
+
+    <div class="container">
+
+        @using (Html.BeginForm("GetFilteredPlaces", "Places", FormMethod.Get))
+        {
+            <div class="form-group">
+                <label for="area">Choose Area</label>
+                @Html.DropDownList("areaID", ViewBag.AreaID as IEnumerable<SelectListItem>, new { id= "area", @class = "browser-default custom-select" })
+            </div>
+            <div class="form-group">
+                <label for="placeType">Choose Area</label>
+                @Html.DropDownList("placeCategoryID", ViewBag.PlaceCategoryID as IEnumerable<SelectListItem>, new {id= "placeType", @class = "browser-default custom-select" })
+            </div>
+            <div class="form-group">
+                <input type="submit" value="GO" class="btn btn-block btn-warning" />
+            </div>
+         }
+        <hr />
+
+         <a class="btn btn-block btn-primary" asp-action="Create" asp-controller="Places">Create New Place</a>
+
+    </div>

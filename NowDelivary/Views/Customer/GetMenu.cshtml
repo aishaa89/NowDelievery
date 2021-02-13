@@ -1,0 +1,50 @@
+﻿@model NowDelivary.View_Model.PlaceVM
+
+@{
+    ViewData["Title"] = "GetMenu";
+}
+<div class="container">
+    <div class="row">
+        <div class="col-sm-7">
+            <p class="alert alert-secondary"><u>Click End Shopping Button When Ending Your Shopping</u></p>
+        </div>
+        <div class="col-sm-2"></div>
+        <div class="col-sm-3">
+            <a asp-action="ShoppingCard" asp-controller="Customer" asp-route-orderID="@ViewBag.orderID" class="btn btn-lg btn-success">End Shopping ?</a>
+        </div>
+    </div>
+    <hr />
+</div>
+
+<div class="row">
+    @{
+        foreach (var item in Model.GetMenu(ViewBag.MenuCatID))
+        {
+            <div class="col-sm-4">
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <div style="height:50%;width:100%">
+                                <img width="100%" height="100%" src="~/projectAssets/assets/img/admin/supplier.jpg" />
+                            </div>
+                            <br />
+                            <h4>Product Name</h4>
+                            <p style="padding:5px">@item.MenuItem</p>
+                        </div>
+                        <div class="flip-card-back">
+                            <div class="col-sm-5">
+                                <i class="fas fa-shopping-cart"></i>
+                                @item.ItemPrice EGP
+                            </div>
+                            <div class="col-sm-2"></div>
+                            <div class="col-sm-4">
+                                <a asp-action="BuyItem" asp-controller="Customer" asp-route-menuID="@item.ID" asp-route-itemQuantity="@Model.menuItemQuantity" asp-route-supermarketID="@Model.GetPlaceByMenuCategory(ViewBag.menuCat).ID" class="btn-block btn btn-outline-danger">Buy</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    }
+</div>
+<hr />

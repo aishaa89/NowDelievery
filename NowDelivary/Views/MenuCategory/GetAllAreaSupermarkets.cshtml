@@ -1,0 +1,27 @@
+﻿@model IEnumerable<Place>
+@{
+    ViewData["Title"] = "GetAllAreaSupermarkets";
+}
+
+<table class="table table-hover">
+        <thead class="thead-dark">
+            <tr style="background-color:black; color:white">
+                <th>Supermarket Name</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @{
+                foreach (var supermarket in Model)
+                {
+                    <tr>
+                        <td>@supermarket.PlaceName</td>
+                        <td>
+                            <a class="btn btn-block btn-dark" asp-action="GetSupermarketSections" asp-controller="MenuCategory" asp-route-supermarketID="@supermarket.ID">Go Inside</a>
+                        </td>
+                    </tr>
+                }
+            }
+        </tbody>
+</table>
+

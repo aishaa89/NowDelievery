@@ -1,0 +1,34 @@
+﻿@model IEnumerable<Area>
+@{
+    ViewData["Title"] = "GetAll";
+}
+
+    <div class="container">
+        <table class="table table-hover">
+            <thead class="thead-dark">
+                <tr>
+                    <td>Area Name</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </thead>
+            <tbody class="table-light">
+                @{
+                    foreach (var area in Model)
+                    {
+                        <tr>
+                            <td>@area.AreaName</td>
+                            <td>
+                                <a class="btn btn-block btn-info" asp-action="EditArea" asp-controller="Area" asp-route-id="@area.ID">Edit</a>
+                            </td>
+                            <td>
+                                <a class="btn btn-block btn-danger" asp-action="DeleteArea" asp-controller="Area" asp-route-id="@area.ID">Delete</a>
+                            </td>
+                        </tr>
+                    }
+                }
+            </tbody>
+        </table>
+        <a class="btn btn-block btn-info" asp-action="CreateArea" asp-controller="Area">Create New Area</a>
+        <a class="btn btn-block btn-dark" asp-action="AdminView" asp-controller="Admin">Return</a>
+    </div>

@@ -1,0 +1,43 @@
+﻿@model NowDelivary.ViewModel.MenuVM
+@{
+    ViewData["Title"] = "GetAll";
+}
+
+    <div class="container">
+        <table class="table table-hover">
+            <thead class="thead-dark">
+                <tr style="background-color:black; color:white">
+                    <td>Menue Item</td>
+                    <td>Item Price</td>
+                    <td>Menue category Id</td>
+                    <td> Edite Menue</td>
+                    <td>Delete Menue</td>
+
+
+                </tr>
+            </thead>
+            <tbody>
+                @{
+                    foreach (var menu in Model.menu)
+                    {
+                        <tr>
+                            <td>@menu.MenuItem</td>
+                            <td>@menu.ItemPrice</td>
+                            <td>@Model.GetCatgory(menu.MenuCategoryID)</td>
+
+                            <td>
+                                @Html.ActionLink("Edite", "Edite", new { id = menu.ID }, new { @class = "btn btn-info" })
+                            </td>
+                            <td>
+                                @Html.ActionLink("Delete", "Delete", new { id = menu.ID }, new { @class = "btn btn-danger" })
+                            </td>
+
+                        </tr>
+                    }
+                }
+            </tbody>
+        </table>
+
+        <a class="btn btn-block btn-primary" asp-action="CreateMenu" asp-controller="Menu">create</a>
+
+    </div>

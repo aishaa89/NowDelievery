@@ -1,0 +1,47 @@
+﻿@model NowDelivary.ViewModel.DelivarymanVM
+
+@{
+    ViewData["Title"] = "GetOrderItems";
+}
+
+<div class="container">
+    @{ 
+        int OrderInfoID = ViewBag.orderInfo;
+        if (Model.GetOrderInformationByID(OrderInfoID).OrderImage != null)
+        {
+            <div class="row">
+                <div class="col-sm-4"></div>
+                <div class="col-sm-4">
+                    <p class="alert alert-primary">This Image is filled with order Items</p>
+                    <hr />
+                    <img height="100%" width="100%" src="~/images/@Model.GetOrderInformationByID(OrderInfoID).OrderImage" />
+                </div>
+            </div>
+        }
+        else
+        {
+            foreach (var item in Model.GetOrderItems(OrderInfoID))
+            {
+                <div class="row">
+                    <table class="table table-hover table-danger">
+                        <thead>
+                            <tr>
+                                <th>Item</th>
+                                <th>Item Price</th>
+                                <th>Quantity</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>@Model.GetMenuItems(item.MenuID).MenuItem</td>
+                                <td>@Model.GetMenuItems(item.MenuID).ItemPrice EGP</td>
+                                <td>@item.MenuItemQuantity</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <hr />
+            }
+        }
+    }
+</div>

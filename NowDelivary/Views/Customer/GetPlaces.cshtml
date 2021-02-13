@@ -1,0 +1,25 @@
+﻿@model NowDelivary.View_Model.PlaceVM
+
+@{
+    ViewData["Title"] = "GetPlaces";
+}
+
+<h1>Get SuperMarkets</h1>
+
+<table class="table table-hover">
+    <thead class="thead-dark">
+        <tr>
+            <th>Supermatket Name</th>
+            <th>Area</th>
+        </tr>
+    </thead>
+    <tbody class="table-light">
+        @foreach (var supermarket in Model.GetAllSupermarket(6))
+        {
+            <tr>
+                <td>@supermarket.PlaceName</td>
+                <td>@Model.getAreaNameByPlace(supermarket.ID)</td>
+            </tr>
+        }
+    </tbody>
+</table>

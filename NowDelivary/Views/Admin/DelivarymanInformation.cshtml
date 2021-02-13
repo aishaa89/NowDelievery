@@ -1,0 +1,17 @@
+﻿@model CustomUser
+
+@{
+    ViewData["Title"] = "DelivarymanInfo";
+}
+
+    <div class="container">
+        <div class="card text-white bg-info mb-3" style="max-width: 18rem;">
+            <div class="card-header">@Model.UserName</div>
+            <div class="card-body">
+                <h5 class="card-title">@Model.UserName Information</h5>
+                <p class="card-text">Phone number : @Model.PhoneNumber</p>
+                <p class="card-text">Identity Number : @Model.IdentityNumber</p>
+                <p class="card-text">Email : @Model.Email</p>
+            </div>
+        </div>
+    </div>

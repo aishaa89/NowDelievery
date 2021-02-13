@@ -1,0 +1,25 @@
+﻿@model MenuCategory
+@{
+    ViewData["Title"] = "CreateMenuCategory";
+}
+
+<h1>CreateMenuCategory</h1>
+<Div class="col-md-4">
+    <form asp-action="CreateMenuCategory" asp-controller="MenuCategory" method="post">
+        <div class="form-group">
+            <label asp-for="@Model.MenuCategoryType">Menu Category type</label>
+            <input asp-for="@Model.MenuCategoryType" placeholder="Enter Category type" />
+        </div>
+
+   
+        <div class="form-group">
+            <label asp-for="@Model.PlaceID" class="control-label">place</label>
+            <select asp-for="@Model.PlaceID" class="form-control" asp-items="ViewBag.placeID"></select>
+        </div>
+
+        <button class="btn btn-block btn-success" type="submit">Save</button>
+    </form>
+</Div>
+
+
+

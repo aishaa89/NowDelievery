@@ -1,0 +1,27 @@
+﻿@model Menu
+@{
+    ViewData["Title"] = "Edite";
+}
+
+
+<Div class="col-md-4">
+    <form asp-action="Edite" asp-controller="Menu" method="post">
+        <div class="form-group">
+            <label asp-for="@Model.MenuItem">Menu item</label>
+            <input asp-for="@Model.MenuItem" placeholder="Enter Menu item" />
+        </div>
+        <div class="form-group">
+            <label asp-for="@Model.ItemPrice">item Price</label>
+            <input asp-for="@Model.ItemPrice" placeholder="Enter item Price" />
+        </div>
+     
+        <div class="form-group">
+            <label asp-for="@Model.MenuCategoryID" class="control-label">Menu Category Type</label>
+            <select asp-for="@Model.MenuCategoryID" class="form-control" asp-items="ViewBag.menucatID"></select>
+        </div>
+
+        <button class="btn btn-block btn-success" type="submit">Save</button>
+    </form>
+</Div>
+
+

@@ -1,0 +1,72 @@
+﻿
+@model NowDelivary.ViewModel.OrderInfoVM
+@{
+    ViewData["Title"] = "GetAllPharmacytsbyArea";
+}
+
+<h1>Choose a Pharmacy</h1>
+<link href="~/projectAssets/assets/css/pharmacy.css" rel="stylesheet" />
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-lg-6" style="margin-left:20%;">
+                <form enctype="multipart/form-data" asp-action="GetAllPharmacytsbyArea" asp-controller="OrderPharm" method="post">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                    <div class="form-group">
+                        <label asp-for="PlaceID" class="control-label">Choose a pharmacy</label>
+                        <select asp-for="PlaceID" class="form-control" asp-items="ViewBag.allpharm"></select>
+                    </div>
+                    <div class="form-group">
+                      
+                            <label asp-for="Image" class="control-label"></label>
+
+                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-10" style="margin-left:-46%;margin-top:20%;">
+
+                                <div id="div" class="file btn btn-lg " style="background-color:rgb(255, 150, 30);margin-top: 15% ;">
+                                    Upload
+                                    <input asp-for="Image" onchange="readURL(this);" />
+
+                                </div>
+
+                            </div>
+                            <div class="col-lg-8 col-md-8 col-sm-4 col-xs-10">
+
+                                <img class="img" id="blah" src="http://placehold.it/180" alt="your image" width="50%" height="50%" />
+                            </div>
+
+                 
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" value="Buy" class="btn btn-group-lg btn-block btn-primary" />
+                    </div>
+
+
+                    @section Scripts {
+                        <script>
+                            $(document).ready(function () {
+                                $('.custom-file-input').on("change", function () {
+                                    var fileName = $(this).val().split("\\").pop();
+                                    $(this).next('.custom-file-label').html(fileName);
+                                });
+                            });
+
+
+                            function readURL(input) {
+                                if (input.files && input.files[0]) {
+                                    var reader = new FileReader();
+
+                                    reader.onload = function (e) {
+                                        $('#blah')
+                                            .attr('src', e.target.result);
+                                    };
+
+                                    reader.readAsDataURL(input.files[0]);
+                                }
+                            }
+
+                        </script>
+                    }
+                </form>
+            </div>
+        </div>
+    </div>

@@ -1,0 +1,33 @@
+﻿
+@model NowDelivary.Models.Area
+@{
+    ViewData["Title"] = "ChooseAreaForPharmacy";
+}
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-4 col-lg-10">
+            <form asp-action="GetAllPharmacytsbyArea" asp-controller="OrderPharm" method="Get">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                <div class="form-group">
+                    <label style="color:white;font-size:large">Choose an Area</label>
+                    <div class="col-md-10 ">
+                        <label style="color:white;font-size:large">Choose an Area</label>
+                        <div class="col-md-10 ">
+                            @Html.DropDownList("AreaID", ViewData["GetArea"] as IEnumerable<SelectListItem>, new { @class = "custom-select form-control" })
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="form-group">
+                    <input type="submit" class="btn btn-warning " value="Go" />
+
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>

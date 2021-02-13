@@ -1,0 +1,18 @@
+﻿
+@{
+    ViewData["Title"] = "GetAll";
+}
+
+    <div class="container">
+
+        @using (Html.BeginForm("GetAllAreaSupermarkets", "MenuCategory",FormMethod.Get))
+        {
+        <div class="form-group">
+            <label for="area">Choose Area</label>
+            @Html.DropDownList("areaID", ViewData["area"] as IEnumerable<SelectListItem>, new { id = "area", @class = "browser-default custom-select" })
+        </div>
+            <div class="form-group">
+                <input type="submit" value="Get All supermarkets" class="btn btn-block btn-warning" />
+            </div>
+        }
+    </div>

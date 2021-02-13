@@ -1,0 +1,54 @@
+﻿@page
+@model LoginModel
+
+@{
+    ViewData["Title"] = "Login";
+    Layout = null;
+}
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>@ViewData["Title"]</title>
+<link href="~/projectAssets/assets/css/styleLogin.css" rel="stylesheet">
+<link rel="stylesheet" href="~/projectAssets/assets/css/animate.min.css">
+
+<div class="wrapper">
+    <div class="container">
+        <h1 class="animated infinite bounce slow">Now Delivary</h1>
+        <h2 class="animated infinite bounce slow">@ViewData["Title"]</h2>
+        <div class="row">
+            <div class="col-sm-6">
+                <form class="form" id="account" method="post">
+                    <input asp-for="Input.Email" placeholder="Your Email" class="form-control" />
+                    <span asp-validation-for="Input.Email" class="text-danger"></span>
+                    <br /><br />
+                    <input asp-for="Input.Password" placeholder="Your Email" class="form-control" />
+                    <span asp-validation-for="Input.Password" class="text-danger"></span>
+                    <br /><br />
+                    <label asp-for="Input.RememberMe">Remember me</label>
+                    <input asp-for="Input.RememberMe" />
+                    <input type="submit" class="login-button" value="Login">
+                    <button class="login-button" asp-page="Register">Register</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <ul class="bg-bubbles">
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+</div>
+
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

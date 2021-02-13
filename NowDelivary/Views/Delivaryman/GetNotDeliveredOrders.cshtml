@@ -1,0 +1,54 @@
+﻿@model NowDelivary.ViewModel.DelivarymanVM
+
+@{
+    ViewData["Title"] = "GetAllOrders";
+}
+
+
+    <div class="container">
+        <h4 class="alert alert-dark">Not Delivered Orders</h4>
+        <hr />
+        <br />
+        @{ 
+            foreach (var order in Model.GetNotDeliveredOrders(ViewData["delivaryman"].ToString()))
+            {
+                <div class="row">
+                    <div class="col-sm-4">
+                        <h3>Order Number : @order.ID</h3>
+                    </div>
+                    <div class="col-sm-2">
+                        <a class="btn btn-warning" asp-action="DeliveredOrder" asp-controller="Delivaryman" asp-route-orderid="@order.ID">Is Deliverd ?</a>
+                    </div>
+                    <div class="col-sm-1"></div>
+                    <div class="col-sm-2">
+                        <a class="btn btn-warning" asp-action="CustomerInformation" asp-controller="Delivaryman" asp-route-customerID="@order.CustomerID">Get Customer Information</a>
+                    </div>
+                </div>
+                <br />
+                <div class="row">
+                    <table class="table table-hover table-info">
+                        <thead class="thead-light">
+                            <tr>
+                                <th>Place</th>
+                                <th>Area</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var orderInfo in Model.GetOrderInformation(order.ID))
+                            {
+                                <tr>
+                                    <td>@Model.GetPlaceByOrderInformationID(orderInfo.ID).PlaceName</td>
+                                    <td>@Model.GetAreaByPlaceID(orderInfo.PlaceID).AreaName</td>
+                                    <td>
+                                        <a class="btn btn-block btn-info" asp-action="GetOrderItems" asp-controller="Delivaryman" asp-route-orderInfoID="@orderInfo.ID">Get Order Information</a>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+                <hr />
+            }
+        }
+    </div>

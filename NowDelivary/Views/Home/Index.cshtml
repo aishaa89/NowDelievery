@@ -1,0 +1,93 @@
+﻿
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+@if (User.IsInRole("Customer"))
+{
+    <section id="hero">
+        <div class="row">
+
+            <div class="col-lg-7 pt-5 pt-lg-0 order-2 order-lg-1 d-flex align-items-center">
+                <div data-aos="zoom-out">
+                    <div class="row">
+                        <div class="col-lg-7 col-md-6">
+                            <div class="flip-card">
+                                <div class="flip-card-inner">
+                                    <div class="flip-card-front">
+                                        <img src="~/projectAssets/assets/img/pharm.jpg" alt="Avatar" style="width:300px;height:300px;">
+                                    </div>
+                                    <div class="flip-card-back">
+                                        <h1>Phrmacy</h1>
+                                        <p>Pharmacy</p>
+                                        <a asp-action="ChooseAreaForpharmacy" asp-controller="OrderPharm" class="bubbly-button">Show</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-5 col-md-5">
+                            <div class="flip-card">
+                                <div class="flip-card-inner">
+                                    <div class="flip-card-front">
+                                        <img src="~/projectAssets/assets/img/superMarket.PNG" alt="SuperMarket" style="width:300px;height:300px;">
+                                    </div>
+                                    <div class="flip-card-back">
+                                        <h1>Market</h1>
+                                        <p>SuperMarket</p>
+                                        <a asp-action="ChooseAreaForSupermarket" asp-controller="Customer" class="bubbly-button">Show</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-7 pt-5 pt-lg-0 order-2 order-lg-1 d-flex align-items-center">
+                <div data-aos="zoom-out">
+                    <div class="row">
+                        <div class="col-lg-7 col-md-6">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-5 order-1 order-lg-2 hero-img" data-aos="zoom-out" data-aos-delay="300">
+                <img src="~/projectAssets/assets/img/hero-img.png" class="img-fluid animated" alt="" style="float: right;border-radius:5%">
+            </div>
+        </div>
+    </section><!-- End Hero -->
+}
+else if (User.IsInRole("Admin"))
+{
+    <partial name="_adminLayout" />
+}
+
+
+
+<script>
+
+    var animateButton = function (e) {
+
+        e.preventDefault;
+        //reset animation
+        e.target.classList.remove('animate');
+
+        e.target.classList.add('animate');
+        setTimeout(function () {
+            e.target.classList.remove('animate');
+        }, 700);
+    };
+
+    var bubblyButtons = document.getElementsByClassName("bubbly-button");
+
+    for (var i = 0; i < bubblyButtons.length; i++) {
+        bubblyButtons[i].addEventListener('click', animateButton, false);
+    }
+
+
+
+
+
+
+</script>

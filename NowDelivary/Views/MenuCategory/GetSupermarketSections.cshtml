@@ -1,0 +1,34 @@
+﻿@model IEnumerable<MenuCategory>
+
+@{
+    ViewData["Title"] = "GetSupermarketSections";
+}
+
+<div class="container">
+    <table class="table table-danger">
+        <thead class="thead-dark">
+            <tr>
+                <th>Section Name</th>
+                <th></th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @{ 
+                foreach (var sec in Model)
+                {
+                    <tr>
+                        <td>@sec.MenuCategoryType</td>
+                        <td>
+                            <a class="btn btn-block btn-warning" asp-action="Edite" asp-route-id="@sec.ID">Edit</a>
+                        </td>
+                        <td>
+                            <a class="btn btn-block btn-danger" asp-action="Delete" asp-route-id="@sec.ID">Delete</a>
+                        </td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+    <a class="btn btn-block btn-info" asp-action="CreateMenuCategory">Add New Section</a>
+</div>

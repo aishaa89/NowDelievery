@@ -1,0 +1,26 @@
+﻿@model Menu
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<Div class="col-md-4">
+    <form asp-action="Delete" asp-controller="Menu" method="post">
+        <div class="form-group">
+            <label asp-for="@Model.MenuItem">Menu item</label>
+            <input asp-for="@Model.MenuItem" placeholder="Enter Menu item" />
+        </div>
+        <div class="form-group">
+            <label asp-for="@Model.ItemPrice">item Price</label>
+            <input asp-for="@Model.ItemPrice" placeholder="Enter item Price" />
+        </div>
+        <div class="form-group">
+            <label asp-for="@Model.MenuCategoryID">Menu Category ID</label>
+            <input asp-for="@Model.MenuCategoryID" placeholder="Enter Menu Category ID" />
+
+        </div>
+
+        <button class="btn btn-block btn-success" type="submit">Save</button>
+    </form>
+</Div>
+
+
